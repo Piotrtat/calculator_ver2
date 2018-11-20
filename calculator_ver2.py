@@ -7,6 +7,11 @@ top.geometry("350x450")
 textin = StringVar()
 operator = ""
 
+def clickbut(number):
+    print(str(number))
+    global operator
+    operator = operator + str(number)
+    textin.set(operator)
 
 
 def equlbut():
@@ -53,6 +58,15 @@ def button_location():
         B_16.place(x=17, y=66)
 
 print(button_location())
+
+def rst():
+    L1 = Label(top, text="Result", fg="green")
+    L1.pack(side=TOP)
+    E1 = Entry(top, textvar=textin, width=int(34.5), bd=5)
+    E1.pack(side=TOP)
+
+
+print(rst())
 
 
 top.configure(bg="LightBlue")
