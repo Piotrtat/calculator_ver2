@@ -68,6 +68,38 @@ def rst():
 
 print(rst())
 
+def options():
+    menubar = Menu(top)
+    filemenu = Menu(menubar, tearoff=0)
+    filemenu.add_command(label="Load", command=options)
+    filemenu.add_separator()
+    filemenu.add_command(label="Save", command=options)
+    filemenu.add_separator()
+    filemenu.add_command(label="Exit", command=top.quit)
+    menubar.add_cascade(label="File", menu=filemenu)
+
+    editmenu = Menu(menubar, tearoff=0)
+
+    editmenu.add_separator()
+
+    editmenu.add_command(label="Cut", command=options)
+    editmenu.add_command(label="Copy", command=options)
+    editmenu.add_command(label="Paste", command=options)
+    editmenu.add_command(label="Delete", command=options)
+    editmenu.add_command(label="Select All", command=options)
+
+    menubar.add_cascade(label="Edit", menu=editmenu)
+
+    helpmenu = Menu(menubar, tearoff=0)
+    helpmenu.add_command(label="Help Index", command=options)
+    helpmenu.add_command(label="About...", command=options)
+    menubar.add_cascade(label="Help", menu=helpmenu)
+
+    top.config(menu=menubar)
+
+
+print(options())
+
 
 top.configure(bg="LightBlue")
 top.mainloop()
